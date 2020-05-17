@@ -7,6 +7,8 @@
  - To run, you will need to put your Alpaca API Key and secret into the `appsettings.json` file.
  - Build with `dotnet build`
  - Run with `dotnet run`
+ 
+## Docker File Coming Soon!
 
 ## TODO List
  - Dockerize Service locally
