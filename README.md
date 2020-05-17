@@ -8,7 +8,11 @@
  - Build with `dotnet build`
  - Run with `dotnet run`
  
-## Docker File Coming Soon!
+## Running in Docker
+ - Install docker locally first, duh!
+ - From root `docker-compose build`
+ - Start in detached mode: `docker-compose up -d` 
+ - View Logs: `docker-compose ps`  *Shows all logs, but its the only running right now*
 
 ## TODO List
  - Dockerize Service locally
