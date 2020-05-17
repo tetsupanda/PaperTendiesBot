@@ -7,7 +7,7 @@
 
 ## TODO List
  - Dockerize Service locally
- - Create Azure deployment; Includes storing secrets in azure
+ - Create Azure deployment; Includes storing/pulling secrets in azure
  - Generate personal trading algo
  - Explore ML approaches to gauge Market Sentiment
  - Print Tendies
