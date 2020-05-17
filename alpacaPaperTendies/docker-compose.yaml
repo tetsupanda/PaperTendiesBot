@@ -1,0 +1,8 @@
+﻿version: '3.4'
+
+services:
+    papertendies:
+        image: alpacapapertendies_papertendies:latest
+        build:
+            context: .
+            dockerfile: Docker/Dockerfile
