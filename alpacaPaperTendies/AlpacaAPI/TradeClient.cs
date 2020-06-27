@@ -5,18 +5,28 @@ using System.Threading.Tasks;
 
 namespace alpacaPaperTendies.AlpacaAPI
 {
-    public class TradeClient : AlpacaApiBase
+    public interface ITradeClient
     {
-
+        AlpacaTradingClient Client();
+        Task<DateTime> GetMarketClose();
+        Task AwaitMarketOpen();
+        Task<Guid> SubmitMarketOrder(string stockSymbol, int quantity, Decimal price, OrderSide side);
+        Task CancelAllOpenOrders();
+        Task ClosePositionAtMarket(string stockTickerSymbol);
+    }
+    public class TradeClient : ITradeClient
+    {
+        private IApiBase _api;
         public TradeClient()
         {
-            
+            _api = new AlpacaApiBase();
         }
+        
 
         private AlpacaTradingClient _client;
         public AlpacaTradingClient Client()
         {
-            _client = Environments.Paper.GetAlpacaTradingClient(new SecretKey(ClientKey, ClientSecret));
+            _client = Environments.Paper.GetAlpacaTradingClient(new SecretKey(_api.ClientKey, _api.ClientSecret));
             return _client;
         }
 

@@ -10,8 +10,8 @@ namespace alpacaPaperTendies.Algos
     internal sealed class MeanReversionPaper : IDisposable
     {
 
-            private TradeClient _tradingClient;
-            private TradeDataClient _dataClient;
+            ITradeClient _tradingClient;
+            ITradeDataClient _dataClient;
 
             // TODO: Move this GUID into trade client, maybe?
             private Guid lastTradeId = Guid.NewGuid();
@@ -20,11 +20,10 @@ namespace alpacaPaperTendies.Algos
             private Decimal _scale;
             public MeanReversionPaper(string symbol, Decimal scale)
             {
-                this._stockSymbol = symbol;
-                this._scale = scale;
-
-                this._tradingClient = new TradeClient();
-                this._dataClient = new TradeDataClient();
+                _stockSymbol = symbol;
+                _scale = scale;
+                _dataClient = new TradeDataClient();
+                _tradingClient = new TradeClient();
             }
 
             public async Task Run()
