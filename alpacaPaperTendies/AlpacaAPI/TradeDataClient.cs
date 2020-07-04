@@ -5,17 +5,23 @@ using System.Collections.Generic;
 
 namespace alpacaPaperTendies.AlpacaAPI
 {
-    public class TradeDataClient : AlpacaApiBase
+    public interface ITradeDataClient
     {
+        AlpacaDataClient DataClient();
+        Task<List<IAgg>> GetBarSet(string stockSymbol);
+    }
+    public class TradeDataClient : ITradeDataClient
+    {
+        private IApiBase _api;
         public TradeDataClient()
         {
-
+            _api = new AlpacaApiBase();
         }
-
+        
         private AlpacaDataClient _client;
         public AlpacaDataClient DataClient()
         {
-            _client = Environments.Paper.GetAlpacaDataClient(new SecretKey(ClientKey, ClientSecret));
+            _client = Environments.Paper.GetAlpacaDataClient(new SecretKey(_api.ClientKey, _api.ClientSecret));
             return _client;
         }
 
