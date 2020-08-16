@@ -15,7 +15,7 @@
  - View Logs: `docker-compose ps`  *Shows all logs, but its the only running right now*
 
 ## TODO List
- - Dockerize Service locally
+ - ~~Dockerize Service locally~~
  - Create Azure deployment; Includes storing/pulling secrets in azure
  - Generate personal trading algo
  - Explore ML approaches to gauge Market Sentiment
