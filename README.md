@@ -9,7 +9,7 @@
  - Run with `dotnet run`
  
 ## Running in Docker
- - Install docker locally first, duh!
+ - Install docker locally first
  - From root `docker-compose build`
  - Start in detached mode: `docker-compose up -d` 
  - View Logs: `docker-compose ps`  *Shows all logs, but its the only running right now*
